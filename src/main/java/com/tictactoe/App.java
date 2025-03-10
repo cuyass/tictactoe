@@ -21,7 +21,15 @@ public class App
 
     }
 
-    public static void drawBoard(){
-        System.out.println("");
+    public static void drawBoard(char[][]board){
+        System.out.println("\tTablero:");
+        for( byte i = 0; i < board.length; i ++) {
+            for (byte j = 0; j < board.length; j++) {
+                System.out.print("\t" + board [i] [j]);
+            }
+            System.out.println();
+        }
+
+
     }
 }
