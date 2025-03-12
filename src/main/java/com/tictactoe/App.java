@@ -29,7 +29,30 @@ public class App
             } else {
                 System.out.println("Es el turno de O:");
             }
+            char c = '-';
+            if(player1) {
+                c = 'x';
+            } else {
+                c = 'o';
+            } 
+
+            byte row = 0;
+            byte col = 0;
+
+            while(true) {
+                System.out.print("Escribe tu posición indicando la fila");
+                row = scanner.nextByte();
+                System.out.print("Escribe tu posición indicando la columna");
+                col = scanner.nextByte();
+            }
             
+            if(row < 0 || col < 0 || row >= n || col >= n) {
+                System.out.println("Te has ido del tablero, prueba otra vez");
+            } else if ( board[row][col] != '-') {
+                System.out.println("Esta ocupado ya, pureba otra vez");
+            } else { 
+            break;
+            }
         }
 
 
