@@ -32,4 +32,37 @@ public class App
 
 
     }
+
+    public static char playerHasWon(char[][]board){
+        for(int i = 0; i < board.length; i++){
+            boolean inARow = true;
+            char value = board[i][0];
+            if(value == '-'){
+                inARow = false;
+            } else {
+                for(int j = 1; j < board[i].length; j++)
+            if(board[i][j] != value){
+                inARow = false;
+                break;
+            }}
+            if(inARow){
+                return value;
+            }
+        }
+        for(int j = 0; j < board[0].length; j++){
+            boolean inACol = true;
+            char value = board[0][j];
+            if(value == '-'){
+                inACol = false;
+            } else {
+                for(int i = 1; i < board.length; i++)
+            if(board[i][j] != value){
+                inACol = false;
+                break;
+            }}
+            if(inACol){
+                return value;
+            }
+        } 
+    }
 }
