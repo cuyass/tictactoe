@@ -15,18 +15,21 @@ public class App
     
     Scanner scanner = new Scanner(System.in);
     System.out.println("¡Hola! ¿Estás a punto para jugar? Porque yo sí");
+
     drawBoard(board);
 
     boolean player1 = true;
+
+
     boolean gameEndend = false;
-        while (gameEndend) {
+        while (!gameEndend) {
             drawBoard(board);
             if (player1) {
                 System.out.println("Es el turno de X:");
             } else {
                 System.out.println("Es el turno de O:");
-
             }
+            
         }
 
 
@@ -108,6 +111,18 @@ public class App
             }
             return ' ';
         }
+        }
+
+        public static boolean boardIsFull(char[][]board) {
+            for(int i = 0; i < board.length; i++) {
+                for(int j = 0; j < board[i].length; j++) {
+                    if(board [i][j] == '-') {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        
         
     }
 }
