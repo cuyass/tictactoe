@@ -12,13 +12,26 @@ public class App
                 board[i][j] = '-';
             }
         }
+    
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("¡Hola! ¿Estás a punto para jugar? Porque yo sí");
+    drawBoard(board);
 
-        Scanner scanner = new Scanner(System.in);
+    boolean player1 = true;
+    boolean gameEndend = false;
+        while (gameEndend) {
+            drawBoard(board);
+            if (player1) {
+                System.out.println("Es el turno de X:");
+            } else {
+                System.out.println("Es el turno de O:");
 
-        System.out.println("¡Hola! ¿Estás a punto para jugar? Porque yo sí");
+            }
+        }
+
+
         
-        drawBoard(board);
-
+    scanner.close();
     }
 
     public static void drawBoard(char[][]board){
