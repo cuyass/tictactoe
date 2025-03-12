@@ -76,6 +76,38 @@ public class App
             if(inACol){
                 return value;
             }
-        } 
+        }
+        boolean inADiag1 = true;
+        char value1 = board[0][0];
+        if(value1 == '-'){
+            inADiag1 = false;
+        } else {
+            for(int i = 1; i < board.length; i++){
+                if(board[i][i] != value1){
+                    inADiag1 = false;
+                    break;
+                }
+            }
+            if(inADiag1){
+                return value1;
+            }
+        }
+        boolean inADiag2 = true;
+        char value2 = board[0][board.length-1];
+        if(value2 == '-'){
+            inADiag2 = false;
+        } else {
+            for(int i = 1; i < board.length; i++){
+                if(board[i][board.length-1] != value2) {
+                    inADiag2 = false;
+                    break;
+                }
+            }
+            if(inADiag2){
+                return value2;
+            }
+            return ' ';
+        }
+        
     }
 }
