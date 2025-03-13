@@ -21,7 +21,7 @@ public class App
     boolean player1 = true;
 
 
-    boolean gameEndend = true; /*true or false? */
+    boolean gameEndend = false; /*true or false? */
     while (!gameEndend) {
 
             drawBoard(board);
