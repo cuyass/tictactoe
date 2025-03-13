@@ -6,6 +6,7 @@ public class App
     public static void main( String[] args )
     {
         byte n = 3;
+
         char[][] board = new char[n][n];
         for(byte i = 0; i < n; i++){
             for(byte j = 0; j < n; j++){
@@ -16,22 +17,65 @@ public class App
     Scanner scanner = new Scanner(System.in);
     System.out.println("¡Hola! ¿Estás a punto para jugar? Porque yo sí");
 
-    drawBoard(board);
 
     boolean player1 = true;
 
 
-    boolean gameEndend = true; /*true or false? */
-        while (!gameEndend) {
+    boolean gameEndend = false; /*true or false? */
+    while (!gameEndend) {
+
             drawBoard(board);
+        
             if (player1) {
                 System.out.println("Es el turno de X:");
             } else {
                 System.out.println("Es el turno de O:");
             }
-            
+
+            char c = '-';
+            if(player1) {
+                c = 'x';
+            } else {
+                c = 'o';
+            } 
+
+            byte row = 0;
+            byte col = 0;
+
+
+            while(true) {
+
+                System.out.print("Escribe tu posición indicando la fila");
+                row = scanner.nextByte();
+                System.out.print("Escribe tu posición indicando la columna");
+                col = scanner.nextByte();
+
+                if(row < 0 || col < 0 || row >= n || col >= n) {
+                    System.out.println("Te has ido del tablero, prueba otra vez");
+                } else if ( board[row][col] != '-') {
+                    System.out.println("Esta ocupado ya, pureba otra vez");
+                } else { 
+                break;
+                }
+            }
+            board[row][col] = c;
+            if(playerHasWon(board) == 'x') {
+                System.out.println("Jugador X ha ganado!");
+                gameEndend = true;
+            } else if (playerHasWon(board) == 'o') {
+                System.out.println("Jugador O ha ganado!");
+                gameEndend = true;
+            } else {
+                if (boardIsFull(board)) {
+                    System.out.println("Es un empate!");
+                    gameEndend = true;
+                } else {
+                    player1 = !player1;
+                }
+            }
         }
 
+        drawBoard(board);
 
         
     scanner.close();
@@ -40,30 +84,34 @@ public class App
     public static void drawBoard(char[][]board){
         System.out.println("\tTablero:");
         for( byte i = 0; i < board.length; i ++) {
-            for (byte j = 0; j < board.length; j++) {
+            for (byte j = 0; j < board[i].length; j++) {
                 System.out.print("\t" + board [i] [j]);
             }
-            System.out.println();
+
+        System.out.println();
+
         }
-
-
     }
 
-    public static char playerHasWon(char[][]board){
+    public static char playerHasWon(char[][] board) {
         for(int i = 0; i < board.length; i++){
             boolean inARow = true;
             char value = board[i][0];
             if(value == '-'){
                 inARow = false;
             } else {
-                for(int j = 1; j < board[i].length; j++)
+                for(int j = 1; j < board[i].length; j++) {
             if(board[i][j] != value){
                 inARow = false;
                 break;
-            }}
+            }
+        }
+    }
+
             if(inARow){
                 return value;
             }
+        
         }
         for(int j = 0; j < board[0].length; j++){
             boolean inACol = true;
@@ -71,15 +119,19 @@ public class App
             if(value == '-'){
                 inACol = false;
             } else {
-                for(int i = 1; i < board.length; i++)
+                for(int i = 1; i < board.length; i++){
             if(board[i][j] != value){
                 inACol = false;
                 break;
-            }}
-            if(inACol){
-                return value;
             }
-        }
+            }
+            }
+
+            if(inACol) {
+             return value;
+            }
+            }
+            
         boolean inADiag1 = true;
         char value1 = board[0][0];
         if(value1 == '-'){
@@ -106,11 +158,12 @@ public class App
                     break;
                 }
             }
+        }
+
             if(inADiag2){
                 return value2;
             }
             return ' ';
-        }
         }
 
         public static boolean boardIsFull(char[][]board) {
