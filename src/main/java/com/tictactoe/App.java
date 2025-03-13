@@ -17,7 +17,6 @@ public class App
     Scanner scanner = new Scanner(System.in);
     System.out.println("¡Hola! ¿Estás a punto para jugar? Porque yo sí");
 
-    drawBoard(board);
 
     boolean player1 = true;
 
@@ -159,11 +158,12 @@ public class App
                     break;
                 }
             }
+        }
+
             if(inADiag2){
                 return value2;
             }
             return ' ';
-        }
         }
 
         public static boolean boardIsFull(char[][]board) {
