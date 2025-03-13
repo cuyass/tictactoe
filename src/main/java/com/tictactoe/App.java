@@ -6,6 +6,7 @@ public class App
     public static void main( String[] args )
     {
         byte n = 3;
+
         char[][] board = new char[n][n];
         for(byte i = 0; i < n; i++){
             for(byte j = 0; j < n; j++){
@@ -22,13 +23,16 @@ public class App
 
 
     boolean gameEndend = true; /*true or false? */
-        while (!gameEndend) {
+    while (!gameEndend) {
+
             drawBoard(board);
+
             if (player1) {
                 System.out.println("Es el turno de X:");
             } else {
                 System.out.println("Es el turno de O:");
             }
+
             char c = '-';
             if(player1) {
                 c = 'x';
@@ -39,11 +43,14 @@ public class App
             byte row = 0;
             byte col = 0;
 
+
             while(true) {
+
                 System.out.print("Escribe tu posición indicando la fila");
                 row = scanner.nextByte();
                 System.out.print("Escribe tu posición indicando la columna");
                 col = scanner.nextByte();
+
             }
             
             if(row < 0 || col < 0 || row >= n || col >= n) {
