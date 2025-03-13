@@ -14,15 +14,13 @@ public class App
             }
         }
     
-    Scanner scanner = new Scanner(System.in);
-    System.out.println("¡Hola! ¿Estás a punto para jugar? Porque yo sí");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("¡Hola! ¿Estás a punto para jugar? Porque yo sí");
 
+        boolean player1 = true;
 
-    boolean player1 = true;
-
-
-    boolean gameEndend = false; /*true or false? */
-    while (!gameEndend) {
+        boolean gameEnded = false;
+        while (!gameEnded) {
 
             drawBoard(board);
         
@@ -42,7 +40,6 @@ public class App
             byte row = 0;
             byte col = 0;
 
-
             while(true) {
 
                 System.out.print("Escribe tu posición indicando la fila");
@@ -58,17 +55,18 @@ public class App
                 break;
                 }
             }
+
             board[row][col] = c;
             if(playerHasWon(board) == 'x') {
-                System.out.println("Jugador X ha ganado!");
-                gameEndend = true;
+                System.out.println("¡Jugador X ha ganado!");
+                gameEnded = true;
             } else if (playerHasWon(board) == 'o') {
-                System.out.println("Jugador O ha ganado!");
-                gameEndend = true;
+                System.out.println("¡Jugador O ha ganado!");
+                gameEnded = true;
             } else {
                 if (boardIsFull(board)) {
-                    System.out.println("Es un empate!");
-                    gameEndend = true;
+                    System.out.println("¡Es un empate!");
+                    gameEnded = true;
                 } else {
                     player1 = !player1;
                 }
@@ -76,9 +74,8 @@ public class App
         }
 
         drawBoard(board);
-
         
-    scanner.close();
+        scanner.close();
     }
 
     public static void drawBoard(char[][]board){
