@@ -1,4 +1,5 @@
 package com.tictactoe;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App 
@@ -41,19 +42,39 @@ public class App
 
             byte row = 0;
             byte col = 0;
-
-
+          
             while(true) {
+                boolean continua;
+                do {
+                    try {
+                        continua = false;
+                        System.out.print("Escribe tu posición indicando la fila: ");
+                        row = scanner.nextByte();
+                    } catch (InputMismatchException e) {
+                        System.out.println("Ingresa solamente los números indicados");
+                        scanner.next();
+                        continua = true;
+                    }  
+                } while (continua);
 
-                System.out.print("Escribe tu posición indicando la fila: ");
-                row = scanner.nextByte();
-                System.out.print("Escribe tu posición indicando la columna: ");
-                col = scanner.nextByte();
+                do {
+                    try {
+                        continua = false;
+                        System.out.print("Escribe tu posición indicando la columna: ");
+                        col = scanner.nextByte();
+                    } catch (InputMismatchException ex) {
+                        System.out.println("Ingresa solamente los números indicados");
+                        scanner.next();
+                        continua = true;
+                    }
+                } while (continua);
+                    
+                
 
-                if(row < 0 || col < 0 || row >= n || col >= n) {
+                if (row < 0 || col < 0 || row >= n || col >= n){
                     System.out.println("Te has ido del tablero, prueba otra vez");
                 } else if ( board[row][col] != '-') {
-                    System.out.println("Esta ocupado ya, pureba otra vez");
+                    System.out.println("Esta ocupado ya, prueba otra vez");
                 } else { 
                 break;
                 }
