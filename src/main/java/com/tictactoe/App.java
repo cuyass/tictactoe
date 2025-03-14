@@ -16,8 +16,13 @@ public class App
         }
     
     Scanner scanner = new Scanner(System.in);
-    System.out.println("¡Hola! ¿Estás a punto para jugar? Porque yo sí\n");
-    System.out.println("Primero, numere las filas verticales del 0 al 2, siendo 0 la fila superior y 2 la fila inferior. Luego, numere las columnas horizontales del 0 al 2, donde 0 corresponde al lado izquierdo y 2 al lado derecho.");
+    System.out.println("¡Hola! ¿Estáis a punto para jugar?\n");
+    System.out.println("¿Cuál es tu nombre, jugador X?");
+    String p1 = scanner.nextLine();
+    System.out.println("Perfecto. ¿Y cuál es el nombre del jugador O?");
+    String p2 = scanner.nextLine();
+    System.out.println("Genial, " + p1 + " y " + p2 + ". Os vamos a explicar las reglas, leed atentamente:");
+    System.out.println("Primero, hay que numerar las filas verticales del 0 al 2, siendo 0 la fila superior y 2 la fila inferior. Luego, hay que numerar las columnas horizontales del 0 al 2, donde 0 corresponde al lado izquierdo y 2 al lado derecho.");
     boolean player1 = true;
 
 
@@ -27,9 +32,9 @@ public class App
             drawBoard(board);
         
             if (player1) {
-                System.out.println("\nEs el turno de X:\n");
+                System.out.println("\nEs el turno de " + p1 + ":\n");
             } else {
-                System.out.println("\nEs el turno de O:\n");
+                System.out.println("\nEs el turno de " + p2 + ":\n");
             }
             
             
@@ -74,17 +79,17 @@ public class App
                 if (row < 0 || col < 0 || row >= n || col >= n){
                     System.out.println("Te has ido del tablero, prueba otra vez");
                 } else if ( board[row][col] != '-') {
-                    System.out.println("Esta ocupado ya, prueba otra vez");
+                    System.out.println("Está ocupado ya, prueba otra vez");
                 } else { 
                 break;
                 }
             }
             board[row][col] = c;
             if(playerHasWon(board) == 'X') {
-                System.out.println("\nJugador X ha ganado!\n");
+                System.out.println("\n" + p1 + " ha ganado!\n");
                 gameEndend = true;
             } else if (playerHasWon(board) == 'O') {
-                System.out.println("\nJugador O ha ganado!\n");
+                System.out.println("\n" + p2 + " ha ganado!\n");
                 gameEndend = true;
             } else {
                 if (boardIsFull(board)) {
