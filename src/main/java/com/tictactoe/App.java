@@ -16,8 +16,7 @@ public class App
     
     Scanner scanner = new Scanner(System.in);
     System.out.println("¡Hola! ¿Estás a punto para jugar? Porque yo sí\n");
-
-
+    System.out.println("Primero, numere las filas verticales del 0 al 2, siendo 0 la fila superior y 2 la fila inferior. Luego, numere las columnas horizontales del 0 al 2, donde 0 corresponde al lado izquierdo y 2 al lado derecho.");
     boolean player1 = true;
 
 
@@ -27,11 +26,12 @@ public class App
             drawBoard(board);
         
             if (player1) {
-                System.out.println("Es el turno de X:");
+                System.out.println("\nEs el turno de X:\n");
             } else {
-                System.out.println("Es el turno de O:");
+                System.out.println("\nEs el turno de O:\n");
             }
-
+            
+            
             char c = '-';
             if(player1) {
                 c = 'X';
@@ -83,7 +83,7 @@ public class App
 
     public static void drawBoard(char[][]board){
         
-        System.out.println("\tTablero:\n");
+        System.out.println("\n\tTablero:\n");
         for( byte i = 0; i < board.length; i ++) {
             for (byte j = 0; j < board[i].length; j++) {
                 System.out.print("\t" + board [i] [j]);
