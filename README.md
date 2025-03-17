@@ -7,7 +7,7 @@ Este es un mini juego de Tic Tac Toe en la línea de comandos, implementado en J
 
 1. El tablero del juego es una cuadrícula de 3x3.
 2. Los jugadores se turnan para colocar su marcador ('X' o 'O') en el tablero, primero 'X' y luego 'O'.
-3. Para hacer un movimiento, ingresa el número de fila y despues el numero de columna del 0 al 2, siendo 0 arriba e izquierda y 2 abajo y derecha cuando se te solicite.
+3. Para hacer un movimiento, ingresa el número de fila y despues el numero de columna del 0 al 2, siendo 0 arriba e izquierda y 2 abajo y derecha cuando se le solicite.
 4. El juego termina cuando un jugador logra poner tres de sus marcadores en una fila, columna o diagonal, o cuando el tablero está lleno, lo que resulta en un empate.
 
 ## Ejecutar el Juego
@@ -25,14 +25,16 @@ Para ejecutar el juego, haz click en 'Run java' en la esquina derecha superior d
 ## Ejemplo
 
 ```
-¡Hola! ¿Estás a punto para jugar? Porque yo sí
+¡Hola! ¿Estáis a punto para jugar? Porque yo sí
 
 	Tablero:
 
 	-	-	-
 	-	-	-
 	-	-	-
+
 Es el turno de X:
+
 Escribe tu posición indicando la fila: 1
 Escribe tu posición indicando la columna: 1
 
@@ -41,7 +43,9 @@ Escribe tu posición indicando la columna: 1
 	-	-	-
 	-	X	-
 	-	-	-
+
 Es el turno de O:
+
 Escribe tu posición indicando la fila: 0
 Escribe tu posición indicando la columna: 0
 

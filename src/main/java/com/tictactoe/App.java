@@ -16,13 +16,13 @@ public class App
         }
     
     Scanner scanner = new Scanner(System.in);
-    System.out.println("¡Hola! ¿Estás a punto para jugar? Porque yo sí\n");
-    System.out.println("Primero, numere las filas verticales del 0 al 2, siendo 0 la fila superior y 2 la fila inferior. Luego, numere las columnas horizontales del 0 al 2, donde 0 corresponde al lado izquierdo y 2 al lado derecho.");
+    System.out.println("¡Hola! ¿Estáis a punto para jugar? Porque yo sí\n");
+    System.out.println("Primero, se debe numerar las filas verticales del 0 al 2, siendo 0 la fila superior y 2 la fila inferior. Luego, se debe numerar las columnas horizontales del 0 al 2, donde 0 corresponde al lado izquierdo y 2 al lado derecho.");
     boolean player1 = true;
 
 
-    boolean gameEndend = false; /*true or false? */
-    while (!gameEndend) {
+    boolean gameEnded = false;
+    while (!gameEnded) {
 
             drawBoard(board);
         
@@ -82,14 +82,14 @@ public class App
             board[row][col] = c;
             if(playerHasWon(board) == 'X') {
                 System.out.println("\nJugador X ha ganado!\n");
-                gameEndend = true;
+                gameEnded = true;
             } else if (playerHasWon(board) == 'O') {
                 System.out.println("\nJugador O ha ganado!\n");
-                gameEndend = true;
+                gameEnded = true;
             } else {
                 if (boardIsFull(board)) {
                     System.out.println("\nEs un empate!\n");
-                    gameEndend = true;
+                    gameEnded = true;
                 } else {
                     player1 = !player1;
                 }
@@ -107,7 +107,7 @@ public class App
         System.out.println("\n\tTablero:\n");
         for( byte i = 0; i < board.length; i ++) {
             for (byte j = 0; j < board[i].length; j++) {
-                System.out.print("\t" + board [i] [j]);
+                System.out.print("\t" + board [i][j]);
             }
         System.out.println();
         }
@@ -128,7 +128,7 @@ public class App
                     }
                 }
             }
-
+            
             if(inARow){
                 return value;
             }
