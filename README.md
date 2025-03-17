@@ -3,6 +3,12 @@
 
 Este es un mini juego de Tic Tac Toe en la línea de comandos, implementado en Java. El juego permite que dos jugadores jueguen uno contra el otro.
 
+## Tecnologías usadas
+
+Java v. 21
+Maven v. 1.4
+Junit Jupiter v. 5.11.4
+
 ## Cómo Jugar
 
 1. El tablero del juego es una cuadrícula de 3x3.
@@ -13,7 +19,6 @@ Este es un mini juego de Tic Tac Toe en la línea de comandos, implementado en J
 ## Ejecutar el Juego
 
 Para ejecutar el juego, haz click en 'Run java' en la esquina derecha superior de la pantalla
-
 
 ## Funciones del Juego
 
